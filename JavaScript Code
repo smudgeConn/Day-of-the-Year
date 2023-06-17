@@ -1,0 +1,23 @@
+function toDayOfYear(arr) {
+  console.log(arr)
+  let year = arr[2];
+  let month = arr[1];
+  let day = arr[0];
+  let total = day;
+  let days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  
+  if (isLeapYear(year) && month >= 3) {total+= 1}
+  
+  for (let i = 0; i < month-1; i++) {
+    total += days[i];
+  }
+  
+  return total;
+}
+
+function isLeapYear(year) {
+  if (year % 4 == 0 && year % 100 != 0) {return true}
+  if (year % 100 == 0 && year % 400 != 0) {return false}
+  if (year % 100 == 0 && year % 400 == 0) {return true}
+  else {return false}
+}
